@@ -5,7 +5,7 @@ categories:
   - wordpress
 targetEditions: wordpress
 name: Standalone
-baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress/master/wordpress-edition
+baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/master
 logo: /images/logo/standalone.svg
 description:
   text: /text/standalone.md    
@@ -45,7 +45,7 @@ settings:
   - caption: Topology
     type: displayfield
     name: topology
-    tooltip: "<h2 align=center>Single instance powered by<br>NGINX Web Server</h2><br><img width='214' height='320' src='https://raw.githubusercontent.com/jelastic-jps/wordpress/master/wordpress-edition/images/topo/standalone.svg?sanitize=true'><br>"
+    tooltip: "<h2 align=center>Single instance powered by<br>NGINX Web Server</h2><br><img width='214' height='320' src='https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/master/images/topo/standalone.svg?sanitize=true'><br>"
 
   - type: envname
     name: envName
