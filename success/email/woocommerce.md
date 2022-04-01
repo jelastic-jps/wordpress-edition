@@ -7,7 +7,7 @@ WordPress Admin Panel:
 **Login**: ${user.email}  
 **Password**: ${globals.wp_admin_pass}  
 
-PhpMyAdmin Admin Panel:   
+phpMyAdmin Panel:   
 **URL**: [https://${settings.envName}.${globals.domain}:8443/](https://${settings.envName}.${globals.domain}:8443/)  
 **Username**: ${globals.db_user}    
 **Password**: ${globals.db_pass}  
