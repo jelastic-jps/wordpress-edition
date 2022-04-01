@@ -1,1 +1,1 @@
-# wordpress-edition
+wordpress-edition
