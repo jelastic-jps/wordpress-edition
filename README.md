@@ -1,6 +1,7 @@
 <p align="left"> 
 <img src="images/logo/standalone.png" width="100">
-</p> 
+</p>  
+
 ## WordPress Edition
 This repository houses a collection of WordPress solutions to build websites of any flavour within [Virtuozzo Application Platform for WordPress](https://docs.jelastic.com/virtuozzo-application-platform-for-wordpress/).
  
