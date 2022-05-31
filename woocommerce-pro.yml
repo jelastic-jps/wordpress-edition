@@ -90,22 +90,7 @@ globals:
   db_pass: ${fn.password(10)}
 
 onInstall:
-  - script: |
-        var envGroups = eval('(' + MANIFEST + ')').envGroups,
-            onAfterReturn = { setGlobals: {} }, 
-            glbs = onAfterReturn.setGlobals,
-            resp;
-        resp = jelastic.env.control.GetRegions(appid, session);
-        if (resp.result != 0) return resp;
-        resp = resp.array;
-        for (var i = 0, n = resp.length; i < n; i++) {
-          for (var k = 0, l = resp[i].hardNodeGroups.length; k < l; k++) {
-            if (resp[i].hardNodeGroups[k].uniqueName == '${settings.region}')
-              glbs["domain"] = resp[i].domain;
-          }
-        }
-        glbs["envGroups"] = envGroups;
-        return { result: 0, onAfterReturn: onAfterReturn };
+  - script: /scripts/setGlobals.js?_r=${fn.random}
 
   - install:
       jps: https://raw.githubusercontent.com/jelastic-jps/wordpress/v2.2.0/manifest.yml?_r=${fn.random}
