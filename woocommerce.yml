@@ -64,6 +64,7 @@ settings:
     disableInactive: true
     selectFirstAvailable: true
     stateId: "wp"
+    dependsOn: ownerUid
    
   - type: owner
     name: ownerUid
