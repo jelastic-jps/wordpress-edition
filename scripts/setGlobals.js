@@ -2,7 +2,7 @@ var envGroups = eval('(' + MANIFEST + ')').envGroups,
     onAfterReturn = { setGlobals: {} }, 
     glbs = onAfterReturn.setGlobals,
     resp;
-resp = jelastic.env.control.GetRegions(appid, session);
+resp = jelastic.env.control.GetRegionsInner(appid, session, '${account.group}', true);
 if (resp.result != 0) return resp;
 resp = resp.array;
 glbs["domain"] = resp[0].domain;
