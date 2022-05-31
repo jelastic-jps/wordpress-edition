@@ -5,6 +5,7 @@ var envGroups = eval('(' + MANIFEST + ')').envGroups,
 resp = jelastic.env.control.GetRegions(appid, session);
 if (resp.result != 0) return resp;
 resp = resp.array;
+glbs["domain"] = resp[0].domain;
 for (var i = 0, n = resp.length; i < n; i++) {
   for (var k = 0, l = resp[i].hardNodeGroups.length; k < l; k++) {
     if (resp[i].hardNodeGroups[k].uniqueName == '${settings.region}')
