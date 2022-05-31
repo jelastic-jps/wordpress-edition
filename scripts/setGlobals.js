@@ -1,0 +1,15 @@
+var envGroups = eval('(' + MANIFEST + ')').envGroups,
+    onAfterReturn = { setGlobals: {} }, 
+    glbs = onAfterReturn.setGlobals,
+    resp;
+resp = jelastic.env.control.GetRegions(appid, session);
+if (resp.result != 0) return resp;
+resp = resp.array;
+for (var i = 0, n = resp.length; i < n; i++) {
+  for (var k = 0, l = resp[i].hardNodeGroups.length; k < l; k++) {
+    if (resp[i].hardNodeGroups[k].uniqueName == '${settings.region}')
+      glbs["domain"] = resp[i].domain;
+  }
+}
+glbs["envGroups"] = envGroups;
+return { result: 0, onAfterReturn: onAfterReturn };
