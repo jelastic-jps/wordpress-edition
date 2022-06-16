@@ -5,7 +5,7 @@ var cdnAppid = "c05ffa5b45628a2a0c95467ebca8a0b4",
     fields = {},
     field,
     resp,
-    LE = "le-addon",
+    LS = "ls-addon",
     CDN = "cdn-addon";
 
 function defineAppFields(appid, name) {
@@ -30,15 +30,8 @@ if (jps.settings.fields.length) {
   }
 
   if (fields[CDN]) defineAppFields(cdnAppid, CDN);
-  if (fields[LE]) defineAppFields(lsAppid, LE);
+  if (fields[LS]) defineAppFields(lsAppid, LS);
 
-  if (!fields[LE].hidden) {
-    if (("${quota.environment.externalip.enabled}" == 0 || "${quota.environment.externalip.maxcount}" == 0 || "${quota.environment.externalip.maxcount.per.node" == 0) &&
-      ("${quota.environment.externalipv6.enabled}" == 0 || "${quota.environment.externalipv6.maxcount}" == 0 || "${quota.environment.externalipv6.maxcount.per.node}" == 0)) {
-        fields[LE].hidden = true;
-        fields[LE].value = false;
-    };
-  }
 }
 
 resp = api.environment.control.GetEnvs();
