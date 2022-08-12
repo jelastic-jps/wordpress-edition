@@ -113,7 +113,8 @@ onInstall:
         DB_PASS: ${globals.db_pass}
         WP_ADMIN_PASS: ${globals.wp_admin_pass}
         success_email: false
-        project: ${settings.project:production}
+        project: ${settings.project:default}
+        projectScope: ${settings.projectScope:production}
         
   - env.control.ApplyNodeGroupData[cp]:
       envName: ${settings.envName}
