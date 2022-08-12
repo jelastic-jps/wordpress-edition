@@ -125,7 +125,7 @@ onInstall:
         LS_ADMIN_PASS: ${globals.ls_admin_pass}
         success_email: false
         project: ${settings.project:default}
-        projectScope: ${settings.project:production}
+        projectScope: ${settings.projectScope:production}
 
   - initNodes:
       envName: ${settings.envName}
