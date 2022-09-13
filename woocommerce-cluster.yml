@@ -111,12 +111,12 @@ onInstall:
       ownerUid: ${settings.ownerUid}
       settings:
         ls-addon: true
-        waf: ${settings.waf}
-        glusterfs: ${settings.glusterfs}
-        wp_protect: ${settings.wp_protect}
+        waf: ${settings.waf:true}
+        glusterfs: ${settings.glusterfs:false}
+        wp_protect: ${settings.wp_protect:true}
         galera: true
-        le-addon: ${settings.le-addon}
-        cdn-addon: ${settings.cdn-addon}
+        le-addon: ${settings.le-addon:true}
+        cdn-addon: ${settings.cdn-addon:false}
         mu-addon: false
         woocommerce: true
         DB_USER: ${globals.db_user}
