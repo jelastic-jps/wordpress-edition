@@ -92,8 +92,8 @@ onInstall:
         ls-addon: false
         waf: false
         wp_protect: false
-        le-addon: ${settings.le-addon}
-        cdn-addon: ${settings.cdn-addon}
+        le-addon: ${settings.le-addon:true}
+        cdn-addon: ${settings.cdn-addon:false}
         mu-addon: false
         woocommerce: false
         DB_USER: ${globals.db_user}
