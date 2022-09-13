@@ -34,20 +34,6 @@ if (jps.settings.fields.length) {
 
 }
 
-var extIP = jelastic.billing.account.GetQuotas('environment.externalip.enabled');
-if (extIP.result != 0) return extIP;
-
-if (!extIP.array[0].value) {
-  jps.settings.fields.push({
-    type: "displayfield",
-    cls: "warning",
-    height: 30,
-    hideLabel: true,
-    hidden: false,
-    markup: "External IP disabled for account, SSL certificates will be installed on SLB/Resolver, extIP won't be attached automatically."
-  });
-}
-
 resp = api.environment.control.GetEnvs();
 if (resp.result != 0) return resp;
 
