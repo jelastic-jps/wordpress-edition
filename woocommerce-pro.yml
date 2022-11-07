@@ -103,10 +103,10 @@ onInstall:
       ownerUid: ${settings.ownerUid}
       settings:
         ls-addon: true
-        waf: ${settings.waf}
-        wp_protect: ${settings.wp_protect}
-        le-addon: ${settings.le-addon}
-        cdn-addon: ${settings.cdn-addon}
+        waf: ${settings.waf:true}
+        wp_protect: ${settings.wp_protect:true}
+        le-addon: ${settings.le-addon:true}
+        cdn-addon: ${settings.cdn-addon:false}
         mu-addon: false
         woocommerce: true
         DB_USER: ${globals.db_user}
