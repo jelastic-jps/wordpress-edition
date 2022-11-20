@@ -73,7 +73,6 @@ if (parseInt("${quota.environment.maxcount:0}", 10) <= resp.infos.length) {
   });
 }
 
-
 return {
     result: 0,
     settings: jps.settings
