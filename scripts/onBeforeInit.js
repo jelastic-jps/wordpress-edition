@@ -11,10 +11,7 @@ var cdnAppid = "c05ffa5b45628a2a0c95467ebca8a0b4",
 function defineAppFields(appid, name) {
     resp = jelastic.dev.apps.GetApp(appid);
 
-    if (resp.result == 0 || resp.result == Response.PERMISSION_DENIED) {
-        fields[name].hidden = false;
-        fields[name].value = true;
-    } else {
+    if (resp.result != 0 || resp.result != Response.PERMISSION_DENIED) {
         fields[name].hidden = true;
         fields[name].value = false;
     }
