@@ -115,6 +115,7 @@ onInstall:
         success_email: false
         project: ${settings.project:default}
         projectScope: ${settings.projectScope:production}
+        php_engine: ${settings.php_engine:PHP8.2}
 
   - env.control.ApplyNodeGroupData[cp]:
       envName: ${settings.envName}
