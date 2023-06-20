@@ -111,12 +111,15 @@ onInstall:
         
   - setProtocol
   
+  - if ('${settings.success_email}' != 'false'):
+    - return:
+        type: success
+        message: /success/text/standalone.md?_r=${fn.random}
+        email: /success/email/standalone.md?_r=${fn.random}
+
+  
 actions:
   setProtocol:
     if (${quota.environment.jelasticssl.enabled} || "${settings.le-addon:false}"):
       setGlobals:
         PROTOCOL: https
-
-success:
-  email: /success/email/standalone.md?_r=${fn.random}
-  text: /success/text/standalone.md?_r=${fn.random}
