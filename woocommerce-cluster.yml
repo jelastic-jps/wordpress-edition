@@ -136,6 +136,12 @@ onInstall:
       data:
         fixedTopologyLayers: 1
 
+  - if ('${settings.success_email}' != 'false'):
+    - return:
+        type: success
+        message: /success/text/woocommerce-cluster.md?_r=${fn.random}
+        email: /success/email/woocommerce-cluster.md?_r=${fn.random}
+
 actions:
   initNodes:
     envName: ${this.envName}
@@ -159,7 +165,3 @@ actions:
       globals[namespace] = nodes;
       
       return { result: 0, onAfterReturn: { setGlobals: globals } }
-
-success:
-  email: /success/email/woocommerce-cluster.md?_r=${fn.random}
-  text: /success/text/woocommerce-cluster.md?_r=${fn.random}
