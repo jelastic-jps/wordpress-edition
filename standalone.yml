@@ -104,7 +104,7 @@ onInstall:
         projectScope: ${settings.projectScope:production}
         php_engine: ${settings.php_engine:php8.2}
         cloudlets: ${settings.cloudlets:16}
-        diskLimit: ${settings.diskLimit:20}
+        diskspace: ${settings.diskspace:20}
    
   - setGlobals:
       installationId: ${response.uniqueName}
