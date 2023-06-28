@@ -1,6 +1,6 @@
 type: install
 jpsVersion: 7.1.1
-id: wp-edition-standalone
+id: wp-edition-standalone-migration-JE-65509
 categories:
   - wordpress
 targetEditions: wordpress
