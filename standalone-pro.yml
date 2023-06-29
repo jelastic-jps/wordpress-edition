@@ -1,11 +1,11 @@
 type: install
 jpsVersion: 7.1.1
-id: wp-edition-standalone-pro
+id: wp-edition-standalone-pro-migration-JE-65509
 categories:
   - wordpress
 targetEditions: wordpress
 name: Standalone Pro
-baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/master
+baseUrl: https://github.com/jelastic-jps/wordpress-edition/blob/JE-65509
 logo: /images/logo/standalone-pro.svg
 description:
   text: /text/standalone-pro.md    
@@ -85,7 +85,7 @@ settings:
     caption: Owner
 
 globals:
-  wp_jps: https://raw.githubusercontent.com/jelastic-jps/wordpress/v2.2.0
+  wp_jps: https://raw.githubusercontent.com/sych74/wordpress/JE-65509
   wp_admin_pass: ${fn.password(10)}
   db_user: user-${fn.random}
   db_pass: ${fn.password(10)}
@@ -94,7 +94,7 @@ onInstall:
   - script: /scripts/setGlobals.js?_r=${fn.random}
 
   - install:
-      jps: https://raw.githubusercontent.com/jelastic-jps/wordpress/v2.2.0/manifest.yml?_r=${fn.random}
+      jps: ${globals.wp_jps}/manifest.yml?_r=${fn.random}
       envName: ${settings.envName}
       region: ${settings.region}
       loggerName: ${settings.envName}
@@ -116,11 +116,25 @@ onInstall:
         project: ${settings.project:default}
         projectScope: ${settings.projectScope:production}
         php_engine: ${settings.php_engine:php8.2}
+        cloudlets: ${settings.cloudlets:16}
+        diskspace: ${settings.diskspace:20}
+
+  - setGlobals:
+      installationId: ${response.uniqueName}
 
   - env.control.ApplyNodeGroupData[cp]:
       envName: ${settings.envName}
       data:
         fixedTopologyLayers: 1
+
+onApplySubscriptionSettings:
+  marketplace.installation.ExecuteAction:
+    appUniqueName: ${globals.installationId}
+    action: applyEnvSettings
+    settings:
+      targetAppid: ${event.params.targetAppid}
+      cloudlets: ${event.params.settings.cloudlets}
+      diskspace: ${event.params.settings.diskspace}000
 
 success:
   email: /success/email/standalone-pro.md?_r=${fn.random}
