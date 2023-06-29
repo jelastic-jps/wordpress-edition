@@ -103,8 +103,8 @@ onInstall:
         project: ${settings.project:default}
         projectScope: ${settings.projectScope:production}
         php_engine: ${settings.php_engine:php8.2}
-        flexibleCloudlets: ${settings.cloudlets:16}
-        diskLimit: ${settings.diskspace}
+        cloudlets: ${settings.cloudlets:16}
+        diskspace: ${settings.diskspace:20}
    
   - setGlobals:
       installationId: ${response.uniqueName}
@@ -128,8 +128,8 @@ onApplySubscriptionSettings:
     action: applyEnvSettings
     settings:
       targetAppid: ${event.params.targetAppid}
-      flexibleCloudlets: ${event.params.settings.cloudlets}
-      diskLimit: ${event.params.settings.diskspace}000
+      cloudlets: ${event.params.settings.cloudlets}
+      diskspace: ${event.params.settings.diskspace}000
 
 success:
   email: /success/email/standalone.md?_r=${fn.random}
