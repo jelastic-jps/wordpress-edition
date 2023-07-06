@@ -103,7 +103,6 @@ onInstall:
         project: ${settings.project:default}
         projectScope: ${settings.projectScope:production}
         php_engine: ${settings.php_engine:php8.2}
-        diskLimit: ${settings.diskLimit:20}
         
   - env.control.ApplyNodeGroupData[cp]:
       envName: ${settings.envName}
