@@ -121,6 +121,8 @@ onInstall:
       data:
         fixedTopologyLayers: 1
 
-success:
-  email: /success/email/woocommerce-pro.md?_r=${fn.random}
-  text: /success/text/woocommerce-pro.md?_r=${fn.random}
+  - if ('${settings.success_email}' != 'false'):
+    - return:
+        type: success
+        message: /success/text/woocommerce-pro.md?_r=${fn.random}
+        email: /success/email/woocommerce-pro.md?_r=${fn.random}
