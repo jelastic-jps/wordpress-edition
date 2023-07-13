@@ -1,11 +1,11 @@
 type: install
 jpsVersion: 7.1.1
-id: wp-edition-woocommerce
+id: wp-edition-woocommerce-migration-JE-65509
 categories:
   - wordpress
 targetEditions: wordpress
 name: WooCommerce
-baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/master
+baseUrl: https://github.com/jelastic-jps/wordpress-edition/blob/JE-65509
 logo: /images/logo/woocommerce.svg
 description:
   text: /text/woocommerce.md    
@@ -71,7 +71,7 @@ settings:
     caption: Owner
 
 globals:
-  wp_jps: https://raw.githubusercontent.com/jelastic-jps/wordpress/v2.2.0
+  wp_jps: https://raw.githubusercontent.com/sych74/wordpress/JE-65509
   wp_admin_pass: ${fn.password(10)}
   db_user: user-${fn.random}
   db_pass: ${fn.password(10)}
@@ -101,6 +101,12 @@ onInstall:
         success_email: false
         project: ${settings.project:default}
         projectScope: ${settings.projectScope:production}
+        php_engine: ${settings.php_engine:php8.2}
+        cloudlets: ${settings.cloudlets}
+        diskspace: ${settings.diskspace}
+  
+  - setGlobals:
+      installationId: ${response.uniqueName}
   
   - env.control.ApplyNodeGroupData[cp]:
       envName: ${settings.envName}
@@ -112,3 +118,12 @@ onInstall:
         type: success
         message: /success/text/woocommerce.md?_r=${fn.random}
         email: /success/email/woocommerce.md?_r=${fn.random}
+
+onApplySubscriptionSettings:
+  marketplace.installation.ExecuteAction:
+    appUniqueName: ${globals.installationId}
+    action: applyEnvSettings
+    settings:
+      targetAppid: ${event.params.targetAppid}
+      cloudlets: ${event.params.settings.cloudlets}
+      diskspace: ${event.params.settings.diskspace}000
