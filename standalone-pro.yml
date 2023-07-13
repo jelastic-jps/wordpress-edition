@@ -4,7 +4,7 @@ id: wp-edition-standalone-pro-migration-JE-65509
 categories:
   - wordpress
 targetEditions: wordpress
-name: Standalone Pro
+name: Standalone Pro Migration
 baseUrl: https://github.com/jelastic-jps/wordpress-edition/blob/JE-65509
 logo: /images/logo/standalone-pro.svg
 description:
