@@ -4,7 +4,7 @@ id: wp-edition-woocommerce-migration-JE-65509
 categories:
   - wordpress
 targetEditions: wordpress
-name: WooCommerce
+name: WooCommerce Migration
 baseUrl: https://github.com/jelastic-jps/wordpress-edition/blob/JE-65509
 logo: /images/logo/woocommerce.svg
 description:
