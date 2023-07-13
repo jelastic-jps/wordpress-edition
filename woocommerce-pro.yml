@@ -115,8 +115,8 @@ onInstall:
         success_email: false
         project: ${settings.project:default}
         projectScope: ${settings.projectScope:production}
-        cloudlets: ${settings.cloudlets}
-        diskspace: ${settings.diskspace}
+        cloudlets: ${settings.cloudlets:16}
+        diskspace: ${settings.diskspace:[quota.disk.limitation]}
 
   - setGlobals:
       installationId: ${response.uniqueName}
@@ -139,4 +139,4 @@ onApplySubscriptionSettings:
     settings:
       targetAppid: ${event.params.targetAppid}
       cloudlets: ${event.params.settings.cloudlets}
-      diskspace: ${event.params.settings.diskspace}
+      diskspace: ${event.params.settings.diskspace}000
