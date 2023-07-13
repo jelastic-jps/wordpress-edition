@@ -94,7 +94,7 @@ onInstall:
   - script: /scripts/setGlobals.js?_r=${fn.random}
 
   - install:
-      jps: https://raw.githubusercontent.com/jelastic-jps/wordpress/v2.2.0/manifest.yml?_r=${fn.random}
+      jps: ${globals.wp_jps}/manifest.yml?_r=${fn.random}
       envName: ${settings.envName}
       region: ${settings.region}
       loggerName: ${settings.envName}
