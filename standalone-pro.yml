@@ -140,4 +140,4 @@ onApplySubscriptionSettings:
     settings:
       targetAppid: ${event.params.targetAppid}
       cloudlets: ${event.params.settings.cloudlets}
-      diskspace: ${event.params.settings.diskspace}
+      diskspace: ${event.params.settings.diskspace}000
