@@ -5,7 +5,7 @@ categories:
   - wordpress
 targetEditions: wordpress
 name: Cluster
-baseUrl: https://raw.githubusercontent.com/sych74/wordpress-cluster/JE-67088
+baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/JE-65509
 logo: /images/logo/cluster.svg
 description:
   text: /text/cluster.md    
