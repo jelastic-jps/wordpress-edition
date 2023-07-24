@@ -191,7 +191,7 @@ onApplySubscriptionSettings:
       bl.nodes: ${event.params.settings.bl.nodes}
       bl.cloudlets: ${event.params.settings.bl.cloudlets}
       bl.diskspace: ${event.params.settings.bl.diskspace}
-      cp.count: ${event.params.settings.cp.nodes}
+      cp.nodes: ${event.params.settings.cp.nodes}
       cp.cloudlets: ${event.params.settings.cp.cloudlets}
       cp.diskspace: ${event.params.settings.cp.diskspace}
       sqldb.cloudlets: ${event.params.settings.sqldb.cloudlets}
