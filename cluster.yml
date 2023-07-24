@@ -129,16 +129,16 @@ onInstall:
         is_trigger: false
         bl.nodes: ${settings.bl.nodes:2}
         bl.cloudlets: ${settings.bl.cloudlets:8}
-        bl.diskspace: "${settings.bl.diskspace:[quota.disk.limitation]}",
-        cp.count: ${settings.cp.nodes:2},
-        cp.cloudlets: ${settings.cp.cloudlets:8},
-        cp.diskspace: "${settings.cp.diskspace:[quota.disk.limitation]}",
+        bl.diskspace: ${settings.bl.diskspace:[quota.disk.limitation]}
+        cp.count: ${settings.cp.nodes:2}
+        cp.cloudlets: ${settings.cp.cloudlets:8}
+        cp.diskspace: ${settings.cp.diskspace:[quota.disk.limitation]}
         sqldb.cloudlets: ${settings.sqldb.cloudlets:16},
-        sqldb.diskspace: "${settings.sqldb.diskspace:[quota.disk.limitation]}",
-        nosqldb.cloudlets: ${settings.nosqldb.cloudlets:8},
-        nosqldb.diskspace: "${settings.nosqldb.diskspace:[quota.disk.limitation]}",
-        storage.cloudlets: ${settings.storage.cloudlets:8},
-        storage.diskspace: "${settings.storage.diskspace:[quota.disk.limitation]}",
+        sqldb.diskspace: ${settings.sqldb.diskspace:[quota.disk.limitation]}
+        nosqldb.cloudlets: ${settings.nosqldb.cloudlets:8}
+        nosqldb.diskspace: ${settings.nosqldb.diskspace:[quota.disk.limitation]}
+        storage.cloudlets: ${settings.storage.cloudlets:8}
+        storage.diskspace: ${settings.storage.diskspace:[quota.disk.limitation]}
   
   - setGlobals:
       installationId: ${response.uniqueName}
