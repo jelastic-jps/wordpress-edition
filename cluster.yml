@@ -200,9 +200,3 @@ onApplySubscriptionSettings:
       nosqldb.diskspace: ${event.params.settings.nosqldb.diskspace}000
       storage.cloudlets: ${event.params.settings.storage.cloudlets}
       storage.diskspace: ${event.params.settings.storage.diskspace}000
-
-      
-      
-      
-      cloudlets: ${event.params.settings.cloudlets}
-      diskspace: ${event.params.settings.diskspace}000
