@@ -190,13 +190,13 @@ onApplySubscriptionSettings:
       targetAppid: ${event.params.targetAppid}
       bl.nodes: ${event.params.settings.bl.nodes}
       bl.cloudlets: ${event.params.settings.bl.cloudlets}
-      bl.diskspace: ${event.params.settings.bl.diskspace}000
+      bl.diskspace: ${event.params.settings.bl.diskspace}
       cp.count: ${event.params.settings.cp.nodes}
       cp.cloudlets: ${event.params.settings.cp.cloudlets}
-      cp.diskspace: ${event.params.settings.cp.diskspace}000
+      cp.diskspace: ${event.params.settings.cp.diskspace}
       sqldb.cloudlets: ${event.params.settings.sqldb.cloudlets}
-      sqldb.diskspace: ${event.params.settings.sqldb.diskspace}000
+      sqldb.diskspace: ${event.params.settings.sqldb.diskspace}
       nosqldb.cloudlets: ${event.params.settings.nosqldb.cloudlets}
-      nosqldb.diskspace: ${event.params.settings.nosqldb.diskspace}000
+      nosqldb.diskspace: ${event.params.settings.nosqldb.diskspace}
       storage.cloudlets: ${event.params.settings.storage.cloudlets}
-      storage.diskspace: ${event.params.settings.storage.diskspace}000
+      storage.diskspace: ${event.params.settings.storage.diskspace}
