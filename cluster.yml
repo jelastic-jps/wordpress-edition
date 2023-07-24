@@ -133,7 +133,7 @@ onInstall:
         cp.count: ${settings.cp.nodes:2}
         cp.cloudlets: ${settings.cp.cloudlets:8}
         cp.diskspace: ${settings.cp.diskspace:[quota.disk.limitation]}
-        sqldb.cloudlets: ${settings.sqldb.cloudlets:16},
+        sqldb.cloudlets: ${settings.sqldb.cloudlets:16}
         sqldb.diskspace: ${settings.sqldb.diskspace:[quota.disk.limitation]}
         nosqldb.cloudlets: ${settings.nosqldb.cloudlets:8}
         nosqldb.diskspace: ${settings.nosqldb.diskspace:[quota.disk.limitation]}
@@ -191,7 +191,7 @@ onApplySubscriptionSettings:
       bl.nodes: ${event.params.settings.bl.nodes}
       bl.cloudlets: ${event.params.settings.bl.cloudlets}
       bl.diskspace: ${event.params.settings.bl.diskspace}000
-      cp.count: ${event.params.settings.cp.nodes},
+      cp.count: ${event.params.settings.cp.nodes}
       cp.cloudlets: ${event.params.settings.cp.cloudlets}
       cp.diskspace: ${event.params.settings.cp.diskspace}000
       sqldb.cloudlets: ${event.params.settings.sqldb.cloudlets}
