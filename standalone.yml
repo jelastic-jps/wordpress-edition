@@ -1,10 +1,10 @@
 type: install
 jpsVersion: 7.1.1
-id: wp-edition-standalone-migration-JE-65509
+id: wp-edition-standalone
 categories:
   - wordpress
 targetEditions: wordpress
-name: Standalone Migration
+name: Standalone
 baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/master
 logo: /images/logo/standalone.svg
 description:
