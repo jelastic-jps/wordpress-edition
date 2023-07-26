@@ -1,11 +1,11 @@
 type: install
 jpsVersion: 7.1.1
-id: wp-edition-woocommerce-pro-migration-JE-65509
+id: wp-edition-woocommerce-pro
 categories:
   - wordpress
 targetEditions: wordpress  
-name: WooCommerce Pro Migration
-baseUrl: https://github.com/jelastic-jps/wordpress-edition/blob/JE-65509
+name: WooCommerce Pro
+baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/master
 logo: /images/logo/woocommerce-pro.svg
 description:
   text: /text/woocommerce-pro.md    
@@ -85,7 +85,7 @@ settings:
     caption: Owner
 
 globals:
-  wp_jps: https://raw.githubusercontent.com/sych74/wordpress/JE-65509
+  wp_jps: https://raw.githubusercontent.com/jelastic-jps/wordpress/v2.2.0
   wp_admin_pass: ${fn.password(10)}
   db_user: user-${fn.random}
   db_pass: ${fn.password(10)}
