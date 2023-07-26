@@ -101,6 +101,12 @@ onInstall:
         success_email: false
         project: ${settings.project:default}
         projectScope: ${settings.projectScope:production}
+        php_engine: ${settings.php_engine:php8.2}
+        cloudlets: ${settings.cloudlets:16}
+        diskspace: ${settings.diskspace:[quota.disk.limitation]}
+  
+  - setGlobals:
+      installationId: ${response.uniqueName}
   
   - env.control.ApplyNodeGroupData[cp]:
       envName: ${settings.envName}
@@ -112,3 +118,12 @@ onInstall:
         type: success
         message: /success/text/woocommerce.md?_r=${fn.random}
         email: /success/email/woocommerce.md?_r=${fn.random}
+
+onApplySubscriptionSettings:
+  marketplace.installation.ExecuteAction:
+    appUniqueName: ${globals.installationId}
+    action: applyEnvSettings
+    settings:
+      targetAppid: ${event.params.targetAppid}
+      cloudlets: ${event.params.settings.cloudlets}
+      diskspace: ${event.params.settings.diskspace}000

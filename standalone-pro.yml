@@ -1,11 +1,11 @@
 type: install
 jpsVersion: 7.1.1
-id: wp-edition-standalone-pro-migration-JE-65509
+id: wp-edition-standalone-pro
 categories:
   - wordpress
 targetEditions: wordpress
 name: Standalone Pro
-baseUrl: https://github.com/jelastic-jps/wordpress-edition/blob/JE-65509
+baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/master
 logo: /images/logo/standalone-pro.svg
 description:
   text: /text/standalone-pro.md    
@@ -85,7 +85,7 @@ settings:
     caption: Owner
 
 globals:
-  wp_jps: https://raw.githubusercontent.com/sych74/wordpress/JE-65509
+  wp_jps: https://raw.githubusercontent.com/jelastic-jps/wordpress/v2.2.0
   wp_admin_pass: ${fn.password(10)}
   db_user: user-${fn.random}
   db_pass: ${fn.password(10)}
@@ -117,7 +117,7 @@ onInstall:
         projectScope: ${settings.projectScope:production}
         php_engine: ${settings.php_engine:php8.2}
         cloudlets: ${settings.cloudlets:16}
-        diskspace: ${settings.diskspace:20}
+        diskspace: ${settings.diskspace:[quota.disk.limitation]}
 
   - setGlobals:
       installationId: ${response.uniqueName}
@@ -141,4 +141,3 @@ onApplySubscriptionSettings:
       targetAppid: ${event.params.targetAppid}
       cloudlets: ${event.params.settings.cloudlets}
       diskspace: ${event.params.settings.diskspace}000
-
