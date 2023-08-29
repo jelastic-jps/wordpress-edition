@@ -97,6 +97,7 @@ globals:
   ls_admin_pass: ${fn.password(10)}  
   db_user: user-${fn.random}
   db_pass: ${fn.password(10)}
+  PROTOCOL: http
 
 onInstall:
   - script: /scripts/setGlobals.js?_r=${fn.random}
@@ -152,6 +153,8 @@ onInstall:
       data:
         fixedTopologyLayers: 1
 
+  - setProtocol
+
   - if ('${settings.success_email}' != 'false'):
     - return:
         type: success
@@ -159,6 +162,11 @@ onInstall:
         email: /success/email/cluster.md?_r=${fn.random}
 
 actions:
+  setProtocol:
+    if (${quota.environment.jelasticssl.enabled} || "${settings.le-addon:false}"):
+      setGlobals:
+        PROTOCOL: https
+
   initNodes:
     envName: ${this.envName}
     namespace: ${this.namespace} 
