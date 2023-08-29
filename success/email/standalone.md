@@ -1,4 +1,4 @@
-**WordPress URL**: [${globals.PROTOCOL}://${settings.envName}.${globals.domain}/](https://${settings.envName}.${globals.domain}/)
+**WordPress URL**: [${globals.PROTOCOL}://${settings.envName}.${globals.domain}/](${globals.PROTOCOL}://${settings.envName}.${globals.domain}/)
 
 Please use the following data to access the admin panels:
 
