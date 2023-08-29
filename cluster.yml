@@ -163,7 +163,7 @@ onInstall:
 
 actions:
   setProtocol:
-    if (${quota.environment.jelasticssl.enabled} || "${settings.le-addon:false}"):
+    if (${quota.environment.jelasticssl.enabled} || ${settings.le-addon:false}):
       setGlobals:
         PROTOCOL: https
 
