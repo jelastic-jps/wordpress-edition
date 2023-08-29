@@ -3,11 +3,11 @@
 Please use the following data to access the admin panels:
 
 WordPress Admin Panel:   
-**URL**: [https://${settings.envName}.${globals.domain}/wp-admin/](https://${settings.envName}.${globals.domain}/wp-admin/)  
+**URL**: [${globals.PROTOCOL}://${settings.envName}.${globals.domain}/wp-admin/](${globals.PROTOCOL}://${settings.envName}.${globals.domain}/wp-admin/)  
 **Login**: ${user.email}  
 **Password**: ${globals.wp_admin_pass}  
 
 phpMyAdmin Panel:   
-**URL**: [https://${settings.envName}.${globals.domain}:8443/](https://${settings.envName}.${globals.domain}:8443/)  
+**URL**: [${globals.PROTOCOL}://${settings.envName}.${globals.domain}:8443/](${globals.PROTOCOL}://${settings.envName}.${globals.domain}:8443/)  
 **Username**: ${globals.db_user}    
 **Password**: ${globals.db_pass}  
