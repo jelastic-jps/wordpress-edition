@@ -1,0 +1,62 @@
+type: install	
+jpsVersion: 6.1.1
+name: Backup Storage	
+id: wp-edition-restore
+targetEditions: wordpress
+logo: /images/backup-logo.svg	
+description: |
+  Create a centralized storage repository for backups of the filesystem and the database. It can be as a single node or multi-node fault-tolerant scalable GlusterFS cluster. Backup storage can keep multiple backups of numerous containers created under a single account using the Restic software. Storage works in tandem with backup add-ons integrated into prepackaged applications.
+baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/master
+categories:
+  - apps/file-manager
+  - wordpress
+
+globals:
+  bkp_jps: https://raw.githubusercontent.com/jelastic-jps/backup-storage/main
+
+settings:
+  onBeforeInit: /scripts/storageOnBeforeInit.js
+
+onInstall: 
+  - install:
+      jps: ${globals.bkp_jps}/storage.jps?_r=${fn.random}
+      envName: ${settings.envName}
+      region: ${settings.region}
+      loggerName: ${settings.envName}
+      displayName: ${settings.displayName}
+      settings:
+        storageNodesCount: ${settings.storageNodesCount:1}
+        cloudlets: ${settings.cloudlets:6}
+        diskspace: ${settings.diskspace:10}
+        clustered: ${settings.clustered:false}
+  - setGlobals:
+      installationId: ${response.uniqueName}
+
+onApplySubscriptionSettings:
+  marketplace.installation.ExecuteAction:
+    appUniqueName: ${globals.installationId}
+    action: applyEnvSettings
+    settings:
+      targetAppid: ${event.params.targetAppid}
+      cloudlets: ${event.params.settings.cloudlets}
+      diskspace: ${event.params.settings.diskspace}000
+      
+actions:
+  applyEnvSettings:
+    script: |
+      var envs = '${this.targetAppid}'.split(',');
+      for (var i=0, n = envs.length; i < n; i++) {
+        let targetAppid = envs[i];
+        let resp = jelastic.env.control.GetEnvInfo(targetAppid, session);
+        if (resp.result != 0) return resp;
+        let node = resp.nodes[0];
+        if (String(node.flexibleCloudlets) != '${this.cloudlets}') {
+          resp = jelastic.env.control.SetCloudletsCountByGroup({ appid: targetAppid, session: session, nodeGroup: node.nodeGroup, fixedCloudlets: node.fixedCloudlets, flexibleCloudlets: '${this.cloudlets}'});
+          if (resp.result != 0) return resp;
+        }
+        if (String(node.diskLimit) != '${this.diskspace}') {
+          resp = jelastic.env.control.SetDiskLimitByGroup({ appid: targetAppid, session: session, nodeGroup: node.nodeGroup, limit: '${this.diskspace}' });
+          if (resp.result != 0) return resp;
+        }
+      }
+      return { result: 0 };
