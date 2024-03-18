@@ -3,6 +3,7 @@ jpsVersion: 7.1.1
 id: wp-edition-cluster
 categories:
   - wordpress
+  - apps/wordpress
 targetEditions: wordpress
 name: Cluster
 baseUrl: https://raw.githubusercontent.com/jelastic-jps/wordpress-edition/master
