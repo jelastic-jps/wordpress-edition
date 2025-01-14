@@ -46,6 +46,7 @@ settings:
     name: cdn-addon
     value: false
     disabled: false
+    hidden: true
     tooltip: "Jelastic CDN is an HTTP/3 premium content delivery network of 160+ Super PoPs (points of presence) with bandwidth capacity up to 115 Tbps, advanced caching and acceleration strategies based on best-in-class IP Anycast technology."
 
   - caption: 'Install GlusterFS Cluster'
@@ -117,7 +118,7 @@ onInstall:
         wp_protect: ${settings.wp_protect:true}
         galera: true
         le-addon: ${settings.le-addon:true}
-        cdn-addon: ${settings.cdn-addon:false}
+        cdn-addon: false
         mu-addon: false
         woocommerce: false
         DB_USER: ${globals.db_user}
